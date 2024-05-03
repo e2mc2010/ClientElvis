@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="DinoKuning.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvis</title>
+</head>
+
+<body style=" color:aquamarine">
+    <div class="container">
+        <ul id="taskList">
+            <h1 style="color:blue">Personal Information</h1>
+            <li>Gender: Male</li>
+            <li>Name: Edison </li>
+            <li>Age: 24 </li>
+            <li>Nationality: Ecuadorian</li>
+            <li>Ethnicity: Latino</li>
+        </ul>
+        <ol id="taskList">
+            <h1 style="color:blue">Professional Information</h1>
+            <li>Elementary education: Escuela Dr. Reinaldo Espinoza</li>
+            <li>High School: Experimental Bernardo Valdivieso</li>
+            <li>High Education: MIU City University Miami</li>
+            <li>University: MIU City University Miami</li>
+        </ol>
+    </div>
+    <ul id="taskList">
+        <li>
+            <a target="_blank" href="my_info.html">
+                My Bio.
+            </a>
+        </li>
+        
+        <li>
+            <a href="mailto:e2mc2010@gmail.com">
+                e-mail
+            </a>
+        </li>
+    </ul>
+    <script>
+        function enviarDatos(event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var telefono = document.getElementById("telefono").value;
+
+            // Almacenar los datos en el almacenamiento local
+            localStorage.setItem("nombre", nombre);
+            localStorage.setItem("email", email);
+            localStorage.setItem("telefono", telefono);
+
+            // Redirigir a la página de confirmación
+            window.location.href = "confirmacion.html";
+        }
+    </script>
+</body>
+
+</html>
