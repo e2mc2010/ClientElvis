@@ -16,14 +16,29 @@ img {
     height: 100px;
 }
 
-.input {
-    background-color: aqua;
-    align-items: center;
-    justify-content: center;
-
-
+.display {
+    width: 250px;
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(229, 243, 221);
+    border-color: rgb(0, 238, 255);
+}
+button {
+    background-color: rgba(72, 163, 156, 0.5);
+    grid-gap: 15px; 
+    grid-row: auto;
 
 }
-
-.output {
+#results {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20pxa;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150%;
 }
