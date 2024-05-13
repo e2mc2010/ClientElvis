@@ -1,0 +1,40 @@
+. {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(men-background-13adti0b3qo3o1gm.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+img {
+    height: 100px;
+}
+.acess {
+    font-size: 200px;
+
+}
+/* Styling the headline */
+h1 {
+    color: #55ff3379; /* Example color */
+    font-family: 'Franklin Gothi Medium', 'Arial Narrow'; /* Example font family */
+    /* Add other styles as needed */
+    font-size: 40px;
+    margin-left: 40px; /* Adjust the margin as needed */
+    /* Add other styles as needed */
+}
+
+/* Styling the links */
+#tasklist li a {
+    color: #f4f4f7; /* Example color */
+    font-family: 'Times New Roman', serif; /* Example font family */
+    /* Add other styles as needed */
+    font-size: 30px;
+    margin-left: 40px; /* Adjust the margin as needed */
+    /* Add other styles as needed */
+}
