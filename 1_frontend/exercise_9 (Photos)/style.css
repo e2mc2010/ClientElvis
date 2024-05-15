@@ -24,7 +24,7 @@ h1 {
     color: #55ff3379; /* Example color */
     font-family: 'Franklin Gothi Medium', 'Arial Narrow'; /* Example font family */
     /* Add other styles as needed */
-    font-size: 40px;
+    font-size: 30px;
     margin-left: 40px; /* Adjust the margin as needed */
     /* Add other styles as needed */
 }
@@ -34,7 +34,16 @@ h1 {
     color: #f4f4f7; /* Example color */
     font-family: 'Times New Roman', serif; /* Example font family */
     /* Add other styles as needed */
-    font-size: 30px;
+    font-size: 20px;
     margin-left: 40px; /* Adjust the margin as needed */
     /* Add other styles as needed */
 }
+.wrapper {
+    margin: 0 auto;
+    width: auto;
+}
+.img-eye {
+    width: 300px;
+}
+
+

@@ -1,0 +1,41 @@
+.Qlayer {
+    display: grid;
+    place-items: center;
+    background: #14171E;
+    height: 100vh;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+    margin: 0;
+  }
+  
+  fieldset {
+    display: inline-grid;
+    width: 80vw;
+    grid-auto-flow: column;
+    grid-template-rows: 50vh;
+    gap: var(--size-3);
+    border: none;
+  }
+  
+  label {
+    cursor: pointer;
+    border-radius: var(--radius-4);
+  }
+  
+  fieldset:focus-within label {
+    outline: 1px solid #fff;
+    outline-offset: 5px;
+  }
+  
+  input[type="radio"] {
+    opacity: 0;
+  }
+  
+  
