@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: aquamarine;
 }
 body{
     background-image: url(men-background-13adti0b3qo3o1gm.jpg);
@@ -13,12 +14,20 @@ body{
 }
 
 img {
-    height: 100px;
+    width: 10px;
+    height: 10px;
 }
-.acess {
-    font-size: 200px;
 
+.link {
+    background-color: rgb(24, 148, 65);
+   
 }
+
+#link3 {
+    background-color: blue;
+    
+}
+
 /* Styling the headline */
 h1 {
     color: #55ff3379; /* Example color */
