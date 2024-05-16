@@ -1,0 +1,51 @@
+statement
+
+let a = 5;
+
+a
+
+a=6
+
+if () {
+
+}
+
+console.log();
+
+
+function name(parameters){
+
+}
+
+function add(num1, num){
+    let result = num1 + num2;
+    return result;
+}
+
+add(2, 4);
+add(5, 9);
+
+function (num1, num2) {
+     let result = num1 + num2;
+    return result;
+}
+
+addN(3, 5);
+
+addN(6, 5);
+
+addN(1, 5);
+
+
+
+
+const getFruitsNames = (box) => {
+    if (box[0] == 1){
+        console.log('banana')
+    }
+}
+
+
+() => {
+
+}
