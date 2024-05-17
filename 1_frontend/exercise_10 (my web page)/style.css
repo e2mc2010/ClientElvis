@@ -1,0 +1,42 @@
+.e2mc_logo {
+    float: left;
+    padding: 2%;
+}
+
+.description {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 5%;
+    float: right;
+    font-style: oblique;
+    font-family: 'Courier New', Courier, monospace;
+    align-content: justify;
+
+}
+
+.text-justified {
+    text-align: justify;
+    font-weight: bold;
+
+}
+
+.continue-button {
+
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgba(11, 12, 11, 0.5);
+    color: rgba(241, 247, 247, 0.938);
+    transition: background-color transparent;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 10px;
+    color: #333;
+    
+}
+
