@@ -7,7 +7,7 @@
     position: absolute;
     width: 70%;
     left: 15%;
-    top: 5%;
+    top: 20%;
     float: right;
     font-style: oblique;
     font-family: 'Courier New', Courier, monospace;
@@ -28,7 +28,8 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    background-color: rgba(11, 12, 11, 0.5);
+    background: linear-gradient(90deg, rgb(6, 137, 137) 0%, rgb(52, 198, 91));
+    /* background-color: #3eb785; */
     color: rgba(241, 247, 247, 0.938);
     transition: background-color transparent;
     margin-bottom: 10px;
@@ -39,4 +40,9 @@ p {
     color: #333;
     
 }
+
+ul {
+    background-color: green;
+}
+
 
