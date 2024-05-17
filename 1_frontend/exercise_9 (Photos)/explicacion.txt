@@ -1,0 +1,26 @@
+ejemplos de sentencias
+let x = 0;
+console.log(x)
+callElvis();
+if(){
+
+}
+
+
+
+Esto es una function
+function name(params) {
+
+}
+
+funcion constante
+const name =  () => {
+
+}
+
+funcion flecha
+() => {
+
+}
+
+() => x;
