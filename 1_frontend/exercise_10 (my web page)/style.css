@@ -7,7 +7,7 @@
     position: absolute;
     width: 70%;
     left: 15%;
-    top: 20%;
+    top: 5%;
     float: right;
     font-style: oblique;
     font-family: 'Courier New', Courier, monospace;
@@ -32,7 +32,8 @@
     /* background-color: #3eb785; */
     color: rgba(241, 247, 247, 0.938);
     transition: background-color transparent;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
 p {

@@ -7,15 +7,15 @@
 // 5 end the Iterator
 // 6 return my counter
 
-const fruitsNames = ['apple', 'banana','pear','apple', 'apple'] ;
+const fruitsNames = ['apple', 'banana','pear','apple', 'apple', 'apple'] ;
 
 let my_counter = 0;
 for (let i =0; i < fruitsNames.length; i++) {
     if(fruitsNames[i] == 'apple'){
         my_counter++;
     }
+
+    document.getElementById('result').innerText = 'I have ' + my_counter + ' apples';
 }
 
-
-console.log('I have '+my_counter+' apples');
 
