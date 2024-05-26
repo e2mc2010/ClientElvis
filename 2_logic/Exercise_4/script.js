@@ -33,5 +33,48 @@ fruitNames.forEach((element, i) => {
 });
 
 console.log(assignedProduct);
-console.log('Total Price', totalPrice.toFixed(2)); //toFixed is the decimal added
+console.log('Total Price:', totalPrice.toFixed(2)); //toFixed is the decimal added
 
+
+OBJETOS
+
+persona 
+    nombre
+    apellido
+    edad
+    genero
+
+    actividad
+
+
+Maria 
+    nombre: Maria
+    apellido: Armijos
+    edad: 18
+    genero: Femenino
+
+    nadar
+
+Pedro 
+    nombre: Pedro
+    apellido: Armijos
+    edad: 25
+    genero: Masculino
+
+    soccer
+    
+[
+{
+    nombre: "Maria",
+    apellido: "Armijos"
+    edad: 18
+    genero: Femenino
+},
+
+{
+    nombre: "Pedro",
+    apellido: "Armijos"
+    edad: 25
+    genero: Masculino
+}
+]

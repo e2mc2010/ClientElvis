@@ -10,6 +10,8 @@ firstSemester.forEach((element) => {
 
 console.log('first average is:', average/4);
 
+alert('Hello')
+
 
 
 // firstSemester.forEach((element, i) => {
