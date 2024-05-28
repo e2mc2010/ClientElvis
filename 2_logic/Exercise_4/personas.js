@@ -1,10 +1,10 @@
 let personas =
     [
         {
-            nombre: "Maria",
+            nombre: "Mario",
             apellido: "Armijos",
             edad: 18,
-            genero: "Femenino",
+            genero: "Masculino",
             telefono: {
                 marca: 'sanmsung',
                 color: 'negro'
@@ -41,13 +41,34 @@ let personas =
             genero: "Masculino"
         },
     ]
-let menorEdad=0;
-    for (let i = 0; i < personas.length; i++) {
-       console.log(personas[i].nombre);
-       if(personas[i].edad < 18){
-        menorEdad++;
-       }
-        
+/*let generoMasculino = 0;
+let generoFemenino = 0;
+for (let i = 0; i < personas.length; i++) {
+    console.log(personas[i].nombre);
+    if (personas[i].genero == 'Masculino') {
+        generoMasculino++;
     }
+    else generoFemenino++;
 
-console.log('Los menores de edad son: '+menorEdad);
+}
+
+console.log('Genero Masculino: ' + generoMasculino);
+console.log('Genero Femenino: ' + generoFemenino);*/
+/*const findPerson = personas.find((persona) =>
+    persona.nombre == 'Mario'
+
+)
+console.log(findPerson);*/
+
+
+let masculinos = personas.filter(persona => persona.genero == 'Masculino');
+let femeninos = personas.filter(persona => persona.genero == 'Femenino');
+
+console.log('Masculinos:', masculinos);
+console.log('Femeninos:', femeninos);
+
+
+Math
+
+
+
