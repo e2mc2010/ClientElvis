@@ -1,83 +1,99 @@
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
+context.scale(20, 20);
 
-const BLOCK_SIZE = 20;
-const BOARD_WIDTH = 14;
-const BOARD_HEIGHT = 25;
+// Define the shapes for Tetris blocks
+const SHAPES = {
+    I: [
+        [1, 1, 1, 1],
+    ],
+    L: [
+        [0, 0, 1],
+        [1, 1, 1],
+    ],
+    J: [
+        [1, 0, 0],
+        [1, 1, 1],
+    ],
+};
 
-canvas.width = BLOCK_SIZE * BOARD_WIDTH;
-canvas.height = BLOCK_SIZE * BOARD_HEIGHT;
-
-context.scale(BLOCK_SIZE, BLOCK_SIZE);
-
-const board = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
-]
-
-const piece = {
-  position: { x: 5, y: 0 },
-  shape: [
-    [1, 1],
-    [1, 1]
-  ]
+// Function to draw the matrix (block)
+function drawMatrix(matrix, offset) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context.fillStyle = 'red';
+                context.fillRect(x + offset.x, y + offset.y, 1, 1);
+            }
+        });
+    });
 }
 
-
-function update() {
-  draw()
-  window.requestAnimationFrame(update)
+// Function to rotate the matrix (block)
+function rotate(matrix, dir) {
+    for (let y = 0; y < matrix.length; ++y) {
+        for (let x = 0; x < y; ++x) {
+            [
+                matrix[x][y],
+                matrix[y][x],
+            ] = [
+                matrix[y][x],
+                matrix[x][y],
+            ];
+        }
+    }
+    if (dir > 0) {
+        matrix.forEach(row => row.reverse());
+    } else {
+        matrix.reverse();
+    }
 }
 
+// Function to create a new piece
+function createPiece(type) {
+    return SHAPES[type];
+}
+
+// Initialize a piece
+let piece = createPiece('L');
+let position = {x: 5, y: 5};
+
+// Function to draw everything
 function draw() {
-  context.fillStyle = '#000';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
-  board.forEach((row, y) => {
-    row.forEach((value, x) => {
-      if (value === 1) {
-        context.fillStyle = 'yellow';
-        context.fillRect(x, y, 1, 1);
-      }
-    })
-  });
-
-  piece.shape.forEach((row, y) => {
-    row.forEach((value, x) => {
-      if (value === 1) {
-        context.fillStyle = 'red';
-        context.fillRect(x + piece.position.x, y + piece.position.y, 1, 1);
-      }
-    })
-  });
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawMatrix(piece, position);
 }
-document.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft') piece.position.x++;
-  if (event.key === 'ArrowRight') piece.position.x--;
-  if (event.key === 'ArrowDown') piece.position.y++;
-})
 
-update()
+// Function to drop the piece
+function drop() {
+    position.y++;
+    draw();
+}
+
+// Function to move the piece
+function move(dir) {
+    position.x += dir;
+    draw();
+}
+
+// Function to rotate the piece
+function rotatePiece() {
+    rotate(piece, 1);
+    draw();
+}
+
+// Event listeners for controls
+document.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') {
+        move(-1);
+    } else if (event.key === 'ArrowRight') {
+        move(1);
+    } else if (event.key === 'ArrowDown') {
+        drop();
+    } else if (event.key === 'ArrowUp') {
+        rotatePiece();
+    }
+});
+
+// Draw the initial state
+draw();

@@ -1,12 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Example</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .bar {
+            fill: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <svg width="600" height="400"></svg>
+    <script>
+        const data = [30, 80, 45, 60, 20, 90, 50];
+        const svg = d3.select("svg");
+        const margin = 50;
+        const width = svg.attr("width") - margin * 2;
+        const height = svg.attr("height") - margin * 2;
+        const g = svg.append("g").attr("transform", `translate(${margin}, ${margin})`);
 
-    <article>
-    <header>
-    An Example Article
-    </header>
-    <div>
-    Some text content that makes up the body of the article.
-    </div>
-    <footer>
-    By Joe Balochio.
-    </footer>
-    </article>
+        const xScale = d3.scaleBand()
+                         .domain(data.map((d, i) => i))
+                         .range([0, width])
+                         .padding(0.4);
+
+        const yScale = d3.scaleLinear()
+                         .domain([0, d3.max(data)])
+                         .range([height, 0]);
+
+        g.append("g")
+         .attr("transform", `translate(0, ${height})`)
+         .call(d3.axisBottom(xScale));
+
+        g.append("g")
+         .call(d3.axisLeft(yScale));
+
+        g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", (d, i) => xScale(i))
+         .attr("y", d => yScale(d))
+         .attr("width", xScale.bandwidth())
+         .attr("height", d => height - yScale(d));
+    </script>
+</body>
+</html>
