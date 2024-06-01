@@ -19,4 +19,4 @@ g.append("g")
   .call(d3.axisLeft(yScale));
 
 g.selectAll(".bar")
-  .data(data)
+  .data(data

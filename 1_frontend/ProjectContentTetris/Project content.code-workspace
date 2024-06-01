@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../exercise_11 (HTML5)"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Project content"
+	}
+}
