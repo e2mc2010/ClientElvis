@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <div>
+            <h1>Registration Page</h1>
+        </div>
+
+        <div>
+            <label for="sername">Username</label>
+            <input type="text" id="username" name="username" placeholder=" " required>
+        </div>
+        <br>
+        <div>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" maxlength="12" placeholder=" " required>
+        </div>
+        <br>
+        <div>
+            <label for="confirm-pass">Confirm Password:</label>
+            <input type="Password" id="confirm-pass" name="confirm pass" maxlength="12" placeholder=" " required>
+        </div>
+        <br>
+        <div>
+            <label for="e-mail">E-mail:</label>
+            <input type="email" id="e-mail" name="e-mail" placeholder="elvis@gmail.com" required>
+        </div>
+        <br>
+        <div>
+            <label for="bdate">Birthday:</label>
+            <input type="date" id="bdate" name="bdate" required>
+        </div>
+        <br>
+        <Div>
+            <input type="submit" value="Register">
+        </Div>
+
+
+    </form>
+    <div id="error-message" class="error"></div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('pass').value;
+            let confirmPassword = document.getElementById('confirm-pass').value;
+            let email = document.getElementById('e-mail').value;
+            let bdate = document.getElementById('bdate').value;
+            let errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';
+
+            if (!username || !password || !confirmPassword || !email || !bdate) {
+                errorMessage.textContent = 'All fields are required.';
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            if (password.length < 6) {
+                errorMessage.textContent = 'Password must be at least 6 characters long.';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match.';
+                return;
+            }
+
+            errorMessage.textContent = 'Registration successful!';
+        });
+
+        function validateEmail(email) {
+            let re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+
+</body>
+
+</html>
