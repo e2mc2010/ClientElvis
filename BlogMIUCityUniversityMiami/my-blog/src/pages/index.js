@@ -6,68 +6,70 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
-const links = [
+const blogLinks = [
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
+    text: "e2mc English Academy",
+    url: "/eemcEnglishAcademy",
     description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+      "Empower your communication skills and unlock a world of opportunity with e2mc English Academy. We offer personalized English language courses to help you achieve your goals, from mastering daily conversation to excelling in business English.",
   },
   {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
+    text: "CEFR Levels",
+    url: "/cefrLevels",
     description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
+      "This section helps you determine your current level of English proficiency according to the Common European Framework of Reference for Languages (CEFR). Here you will find: Descriptions of each CEFR level (A1-C2). Skills you can expect to develop at each level. Resources to assess your proficiency.",
   },
   {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
+    text: "English Skills",
+    url: "/englishSkills",
     description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
+      "This section is your one-stop shop for developing a strong foundation and expanding your English language abilities. We offer a variety of resources and strategies to help you improve in all four core areas:\n Reading: Enhance your comprehension and vocabulary through engaging materials.\n Writing: Master grammar, sentence structure, and clear communication.\n Listening: Develop strong listening comprehension skills for everyday conversations and various accents.\n Speaking: Build confidence and fluency in expressing yourself effectively.\n Discover how to enhance your Gatsby site with a vast array of plugins contributed by the developer community.",
   },
   {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
+    text: "Staff",
+    url: "/staff",
     description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
+      "This section introduces you to the passionate and experienced team behind e2mc English Academy. Our qualified instructors are committed to creating a supportive learning environment and helping you achieve your English language goals.",
   },
 ]
 
-const samplePageLinks = [
+
+const internalLinks = [
   {
-    text: "Page 2",
+    text: "Second Page",
     url: "page-2",
     badge: false,
     description:
-      "A simple example of linking to another page within a Gatsby site",
+      "Learn how to link to other pages within your Gatsby site effortlessly.",
   },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
+  { text: "Using TypeScript", url: "using-typescript" },
+  { text: "Server-Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
 ]
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
+const additionalLinks = [
+  { text: "English Grammar Guide", url: "https://gatsby.dev/discord" },
   {
-    text: "Documentation",
+    text: "Fun English Learning Games",
     url: "https://gatsbyjs.com/docs/",
   },
   {
-    text: "Starters",
+    text: "English Podcasts for Beginners",
     url: "https://gatsbyjs.com/starters/",
   },
   {
-    text: "Showcase",
+    text: "English YouTube Channel",
     url: "https://gatsbyjs.com/showcase/",
   },
   {
-    text: "Contributing",
+    text: "English Conversation Practice",
     url: "https://www.gatsbyjs.com/contributing/",
   },
   { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
 ]
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+
 
 const IndexPage = () => (
   <Layout>
@@ -78,51 +80,46 @@ const IndexPage = () => (
         width={64}
         quality={95}
         formats={["auto", "webp", "avif"]}
-        alt=""
+        alt="e2mc logo"
         style={{ marginBottom: `var(--space-3)` }}
       />
       <h1>
-        Welcome to <b>e2mc</b>
+        Welcome to <b>e2mc Blog</b>
       </h1>
       <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
+        <b>Explore our pages:</b>{" "}
+        {internalLinks.map((link, i) => (
           <React.Fragment key={link.url}>
             <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
+            {i !== internalLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
         <br />
-        Edit <code>src/pages/index.js</code> to update this page.
+        Edit <code>src/pages/index.js</code> to customize this page.
       </p>
     </div>
     <ul className={styles.list}>
-      {links.map(link => (
+      {blogLinks.map(link => (
         <li key={link.url} className={styles.listItem}>
-          <a
+          <Link
             className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
+            to={link.url}
           >
             {link.text} ↗
-          </a>
+          </Link>
           <p className={styles.listItemDescription}>{link.description}</p>
         </li>
       ))}
     </ul>
-    {moreLinks.map((link, i) => (
+    {additionalLinks.map((link, i) => (
       <React.Fragment key={link.url}>
         <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
+        {i !== additionalLinks.length - 1 && <> · </>}
       </React.Fragment>
     ))}
   </Layout>
 )
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
